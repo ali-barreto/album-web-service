@@ -22,86 +22,86 @@
 <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {  
+	$(document).ready(function() {  
 
-	$('.category').click(function(e){
-        e.preventDefault(); //stop default action of the link
-		cat = $(this).attr("href");  //get category from URL
-		loadAJAX(cat);  //load AJAX and parse JSON file
-	});
-});	
-
-
-function loadAJAX(cat)
-{
-	//AJAX connection will go here
-    //alert('cat is: ' + cat);
-
-    $.ajax({
-		type: "GET",
-		dataType: "json", 
-		url: "api.php?cat=" + cat, 
-		success: bondJSON
-	});
+		$('.category').click(function(e){
+			e.preventDefault(); //stop default action of the link
+			cat = $(this).attr("href");  //get category from URL
+			loadAJAX(cat);  //load AJAX and parse JSON file
+		});
+	});	
 
 
-}
-function toConsole(data)
-{//return data to console for JSON examination
-	console.log(data); //to view,use Chrome console, ctrl + shift + j
-}
+	function loadAJAX(cat)
+	{
+		//AJAX connection will go here
+		//alert('cat is: ' + cat);
 
-function bondJSON(data){
-//JSON processing data goes here
+		$.ajax({
+			type: "GET",
+			dataType: "json", 
+			url: "api.php?cat=" + cat, 
+			success: bondJSON
+		});
 
-	//using this I can see  object in console
-	console.log(data);
 
-	//this defines type of info returned
-	$('#filmtitle').html(data.title);
+	}
+	function toConsole(data)
+	{//return data to console for JSON examination
+		console.log(data); //to view,use Chrome console, ctrl + shift + j
+	}
 
-	$('#films').html('');
+	function bondJSON(data){
+	//JSON processing data goes here
 
-	$.each(data.films,function(i,item){
-		let str = bondTemplate(item);
+		//using this I can see  object in console
+		console.log(data);
 
-		$('<div></div>').html(str).appendTo('#films');
+		//this defines type of info returned
+		$('#filmtitle').html(data.title);
+
+		$('#films').html('');
+
+		$.each(data.films,function(i,item){
+			let str = bondTemplate(item);
+
+			$('<div></div>').html(str).appendTo('#films');
+			
+
+
+		});
+		//in this way we can see all of data on page
+		/*
+		let myData = JSON.stringify(data,null,4);
+		myData = '<pre>' + myData + '</pre>';
+		$("#output").html(myData);
+		*/
+		//this works, but text is all bunched up
+		//$("#output").text(JSON.stringify(data));
+	}
+
+	function bondTemplate(film){
+		return `
+				<div class="film">
+				
+					<b>Film:</b> ${film.Film}<br />
+					<b>Title:</b> ${film.Title}<br />
+					<b>Year:</b> ${film.Year}<br />
+					<b>Director:</b> ${film.Director}<br />
+					<b>Producers:</b>${film.Producers}<br />
+					<b>Writers:</b> ${film.Writers}<br />
+					<b>Composer:</b>${film.Composer}<br />
+					<b>Bond:</b> ${film.Bond}<br />
+					<b>Budget:</b> ${film.Budget}<br />
+					<b>Box Office:</b>${film.BoxOffice} <br />
+					<div class="pic"><img src="thumbnails/${film.Image}" />
+				</div>
+			</div>
+		
 		
 
-
-	});
-	//in this way we can see all of data on page
-	/*
-	let myData = JSON.stringify(data,null,4);
-	myData = '<pre>' + myData + '</pre>';
-	$("#output").html(myData);
-	*/
-	//this works, but text is all bunched up
-	//$("#output").text(JSON.stringify(data));
-}
-
-function bondTemplate(film){
-	return `
-			<div class="film">
-			
-				<b>Film:</b> ${film.Film}<br />
-				<b>Title:</b> ${film.Title}<br />
-				<b>Year:</b> ${film.Year}<br />
-				<b>Director:</b> ${film.Director}<br />
-				<b>Producers:</b>${film.Producers}<br />
-				<b>Writers:</b> ${film.Writers}<br />
-				<b>Composer:</b>${film.Composer}<br />
-				<b>Bond:</b> ${film.Bond}<br />
-				<b>Budget:</b> ${film.Budget}<br />
-				<b>Box Office:</b>${film.BoxOffice} <br />
-				<div class="pic"><img src="thumbnails/${film.Image}" /></div>
-			</div>
-	
-	
-	
-	`;
-
-}
+		`;
+	}
 
 
 </script>
