@@ -42,7 +42,8 @@
 			dataType: "json", 
 			url: "api.php?cat=" + cat, 
 			success: bondJSON
-			error: function(xhr, status, error){
+			error: function(xhr, status, error)
+			{
 				let errorMessage = xhr.status + ': ' + xhr.statusText
 				alert('Error - ' + errorMessage);
 		}   });
@@ -70,8 +71,6 @@
 
 			$('<div></div>').html(str).appendTo('#films');
 			
-
-
 		});
 		
 		//in this way we can see all of data on page
@@ -96,7 +95,7 @@
 					<b>Title:</b> ${film.Title}<br />
 					<b>Sales:</b> ${film.Sales}<br />
 					<b>Genre:</b>${film.Genre}<br />
-					<div class="pic"><img src="thumbnails/${film.Image}" />
+					<div class="pic"><img src="thumbnails/${album.Image}" />
 				</div>
 			</div>
 		
