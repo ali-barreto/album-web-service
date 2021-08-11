@@ -21,7 +21,7 @@ function loadAJAX(cat)
 {
 	//AJAX connection will go here
     //alert('cat is: ' + cat);
-}
+
     $.ajax({
 		type: "GET",
 		dataType: "json", 
@@ -30,11 +30,11 @@ function loadAJAX(cat)
 	});
 
 
-
+}
 function toConsole(data)
 {//return data to console for JSON examination
 	console.log(data); //to view,use Chrome console, ctrl + shift + j
-}
+
 
 function bondJSON(data){
 //JSON processing data goes here
