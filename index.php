@@ -65,7 +65,7 @@
 
 		$('#films').html('');
 
-		$.each(data.films,function(i,item){
+		$.each(data.albums,function(i,item){
 			let str = bondTemplate(item);
 
 			$('<div></div>').html(str).appendTo('#films');
@@ -96,11 +96,6 @@
 					<b>Title:</b> ${film.Title}<br />
 					<b>Sales:</b> ${film.Sales}<br />
 					<b>Genre:</b>${film.Genre}<br />
-					<b>Writers:</b> ${film.Writers}<br />
-					<b>Composer:</b>${film.Composer}<br />
-					<b>Bond:</b> ${film.Bond}<br />
-					<b>Budget:</b> ${film.Budget}<br />
-					<b>Box Office:</b>${film.BoxOffice} <br />
 					<div class="pic"><img src="thumbnails/${film.Image}" />
 				</div>
 			</div>
