@@ -42,6 +42,11 @@
 			dataType: "json", 
 			url: "api.php?cat=" + cat, 
 			success: bondJSON
+			error: function(xhr, status, error){
+        let errorMessage = xhr.status + ': ' + xhr.statusText
+        alert('Error - ' + errorMessage);
+    }
+
 		});
 
 
@@ -71,11 +76,14 @@
 
 		});
 		//in this way we can see all of data on page
-		/*
+		
 		let myData = JSON.stringify(data,null,4);
 		myData = '<pre>' + myData + '</pre>';
 		$("#output").html(myData);
-		*/
+
+
+		
+		
 		//this works, but text is all bunched up
 		//$("#output").text(JSON.stringify(data));
 	}
@@ -94,7 +102,7 @@
 					<b>Bond:</b> ${film.Bond}<br />
 					<b>Budget:</b> ${film.Budget}<br />
 					<b>Box Office:</b>${film.BoxOffice} <br />
-					<div class="pic"><img src="thumbnails/${film.Images}" />
+					<div class="pic"><img src="thumbnails/${film.Image}" />
 				</div>
 			</div>
 		
@@ -108,8 +116,8 @@
 </head>
 	<body>
 	<h1>Album Web Service</h1>
-		<a href="year" class="category">Bond Films By Year</a><br />
-		<a href="box" class="category">Bond Films By International Box Office Totals</a>
+		<a href="year" class="category">Albums By Year</a><br />
+		<a href="genre" class="category">Albums by Genre</a>
 		<h3 id="filmtitle">Title Will Go Here</h3>
 		<div id="films">
 			
