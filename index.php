@@ -93,7 +93,7 @@ function bondTemplate(film){
 				<b>Composer:</b>${film.Composer}<br />
 				<b>Bond:</b> ${film.Bond}<br />
 				<b>Budget:</b> ${film.Budget}<br />
-				<b>Box Office:</b>${film.Box Office} <br />
+				<b>Box Office:</b>${film.BoxOffice} <br />
 				<div class="pic"><img src="thumbnails/${film.Image}" /></div>
 			</div>
 	
