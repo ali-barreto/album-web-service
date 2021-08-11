@@ -86,7 +86,7 @@ function bondJSON(data){
 				<b>"Bond":</b> Sean Connery<br />
 				<b>"Budget":</b> $1,000,000.00<br />
 				<b>"Box Office":</b> $59,567,035.00<br />
-				<div class="pic"><img src="thumbnails/"dr-no.jpg></div>
+				<div class="pic"><img src="thumbnails/dr-no.jpg"></div>
 			</div>
 		</div>
 		<div id="output">Results go here</div>
