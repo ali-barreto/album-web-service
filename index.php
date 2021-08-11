@@ -94,13 +94,13 @@
 					<b>Bond:</b> ${film.Bond}<br />
 					<b>Budget:</b> ${film.Budget}<br />
 					<b>Box Office:</b>${film.BoxOffice} <br />
-					<div class="pic"><img src="thumbnails/${film.images}" />
+					<div class="pic"><img src="thumbnails/${film.Images}" />
 				</div>
 			</div>
 		
 		
 
-		`;
+			`;
 	}
 
 
