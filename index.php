@@ -43,11 +43,9 @@
 			url: "api.php?cat=" + cat, 
 			success: bondJSON
 			error: function(xhr, status, error){
-        let errorMessage = xhr.status + ': ' + xhr.statusText
-        alert('Error - ' + errorMessage);
-    }
-
-		});
+			let errorMessage = xhr.status + ': ' + xhr.statusText
+			alert('Error - ' + errorMessage);
+    }   });
 
 
 	}
@@ -67,7 +65,7 @@
 
 		$('#films').html('');
 
-		$.each(data.films,function(i,item){
+		/*$.each(data.films,function(i,item){
 			let str = bondTemplate(item);
 
 			$('<div></div>').html(str).appendTo('#films');
@@ -75,6 +73,7 @@
 
 
 		});
+		*/
 		//in this way we can see all of data on page
 		
 		let myData = JSON.stringify(data,null,4);
@@ -82,7 +81,7 @@
 		$("#output").html(myData);
 
 
-		
+
 		
 		//this works, but text is all bunched up
 		//$("#output").text(JSON.stringify(data));
