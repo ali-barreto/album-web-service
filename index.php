@@ -43,9 +43,9 @@
 			url: "api.php?cat=" + cat, 
 			success: bondJSON
 			error: function(xhr, status, error){
-			let errorMessage = xhr.status + ': ' + xhr.statusText
-			alert('Error - ' + errorMessage);
-    }   });
+				let errorMessage = xhr.status + ': ' + xhr.statusText
+				alert('Error - ' + errorMessage);
+		}   });
 
 
 	}
@@ -65,7 +65,7 @@
 
 		$('#films').html('');
 
-		/*$.each(data.films,function(i,item){
+		$.each(data.films,function(i,item){
 			let str = bondTemplate(item);
 
 			$('<div></div>').html(str).appendTo('#films');
@@ -73,7 +73,7 @@
 
 
 		});
-		*/
+		
 		//in this way we can see all of data on page
 		
 		let myData = JSON.stringify(data,null,4);
@@ -91,11 +91,11 @@
 		return `
 				<div class="film">
 				
-					<b>Film:</b> ${film.Film}<br />
-					<b>Title:</b> ${film.Title}<br />
 					<b>Year:</b> ${film.Year}<br />
-					<b>Director:</b> ${film.Director}<br />
-					<b>Producers:</b>${film.Producers}<br />
+					<b>Artist:</b> ${film.Artist}<br />
+					<b>Title:</b> ${film.Title}<br />
+					<b>Sales:</b> ${film.Sales}<br />
+					<b>Genre:</b>${film.Genre}<br />
 					<b>Writers:</b> ${film.Writers}<br />
 					<b>Composer:</b>${film.Composer}<br />
 					<b>Bond:</b> ${film.Bond}<br />
@@ -109,7 +109,16 @@
 
 			`;
 	}
-
+/*
+ 	{
+		"Year":1996,
+		"Artist":"Tupac",
+		"Title":"All Eyes On Me",
+		"Sales":5000000,
+		"Genre":"Rap",
+		"Image":"tupac.jpg"							
+   	 },
+*/
 
 </script>
 </head>
